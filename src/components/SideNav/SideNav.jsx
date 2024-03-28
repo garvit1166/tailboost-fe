@@ -1,22 +1,25 @@
-import React, { useEffect } from "react";
-import "./SideNav.css";
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import { LiaUserCircle } from "react-icons/lia";
-import { MdLogout } from "react-icons/md";
-import { navItems } from "./config";
-import NavItem from "./NavItem";
-import logo from "../../assets/logo.png";
-import TopNavbar from "../TopNavbar/TopNavbar";
-import useValue from "../../context/userContext";
+import React, { useEffect } from 'react';
+import './SideNav.css';
+import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
+import { LiaUserCircle } from 'react-icons/lia';
+import { MdLogout } from 'react-icons/md';
+import { navItems } from './config';
+import NavItem from './NavItem';
+import logo from '../../assets/logo.png';
+import TopNavbar from '../TopNavbar/TopNavbar';
+import useValue from '../../context/userContext';
+import useUser from '../../context/userContext';
+import { useNavigate } from 'react-router-dom';
 
 function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
-
-  const {setUserLoggedIn}=useValue();
-  const handleLogout=()=>{
+  const { setUserLoggedIn } = useValue();
+  const { userName } = useUser();
+  let navigate = useNavigate();
+  const handleLogout = () => {
     setUserLoggedIn(false);
-    localStorage.clear();
-  }
- 
+    navigate('/');
+  };
+
   return (
     <>
       {isSmallScreen ? (
@@ -29,9 +32,9 @@ function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
             <img
               className="w-10"
               src={logo}
-              style={{ width: ` ${showSideNav ? "20%" : "50%"} ` }}
+              style={{ width: ` ${showSideNav ? '20%' : '50%'} ` }}
             ></img>
-            <p className={`fs-5 ms-2 ${showSideNav ? "d-inline" : "d-none"}`}>
+            <p className={`fs-5 ms-2 ${showSideNav ? 'd-inline' : 'd-none'}`}>
               TailBoost
             </p>
           </div>
@@ -55,16 +58,16 @@ function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
               onClick={handleLogout}
               nav={{
                 id: 4,
-                name: "Logout",
+                name: 'Logout',
                 icon: MdLogout,
-                link: "/",
+                link: '/',
               }}
             />
           </div>
           <hr />
           <div className="d-flex fs-5 mx-auto">
             <LiaUserCircle className="fs-2" />
-            <p className={`ms-4 ${showSideNav ? "" : "d-none"}`}> UserName</p>
+            <p className={`ms-4 ${showSideNav ? '' : 'd-none'}`}> {userName}</p>
           </div>
         </div>
       )}
