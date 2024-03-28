@@ -1,0 +1,16 @@
+.infoHeading{
+    letter-spacing: 0.1rem;
+}
+.infoBar{
+    background: rgb(106,168,110);
+    background: linear-gradient(90deg, rgba(106,168,110,1) 1%, rgba(103,207,112,1) 9%, rgba(146,254,157,1) 17%, rgba(97,237,167,1) 26%, rgba(89,247,237,1) 44%, rgba(9,224,211,1) 55%, rgba(70,183,166,1) 69%, rgba(11,106,131,1) 100%);
+    padding-bottom: 7% !important ;
+}
+
+@media (max-width: 767px) {
+    .infoBar {
+       background-color: transparent !important;
+       background: none;
+       padding-bottom: 3% !important;
+    }
+  }

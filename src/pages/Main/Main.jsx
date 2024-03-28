@@ -6,26 +6,26 @@ import './Main.css';
 
 const Main = () => {
   const [showSideNav, setShowSideNav] = useState(true);
-  const [showTopNav, setShowTopNav] = useState(window.innerWidth < 768);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
 
   window.onresize = () => {
-    setShowTopNav(window.innerWidth < 768);
+    setIsSmallScreen(window.innerWidth < 768);
   };
 
   return (
     <div
       className={`d-flex w-100 h-100 ${
-        showTopNav ? 'flex-column' : 'flex-row'
+        isSmallScreen ? 'flex-column' : 'flex-row'
       } `}
     >
       <div className={`${showSideNav ? 'sideNav' : 'slimSideNav'} `}>
         <SideNav
           showSideNav={showSideNav}
           setShowSideNav={setShowSideNav}
-          showTopNav={showTopNav}
+          isSmallScreen={isSmallScreen}
         />
       </div>
-      <div className="outlet">
+      <div className="outlet w-100 h-100 outlet">
         <Outlet />
       </div>
     </div>

@@ -1,20 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './SideNav.css';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
+import { LiaUserCircle } from 'react-icons/lia';
+import { MdLogout } from 'react-icons/md';
 import { navItems } from './config';
+import NavItem from './NavItem';
+import logo from '../../assets/logo.png';
+import TopNavbar from '../TopNavbar/TopNavbar';
 
-function SideNav({ showSideNav, setShowSideNav, showTopNav }) {
-  const toggleSideNav = () => {
-    setShowSideNav(!showSideNav);
-  };
-  console.log(navItems);
+function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
   return (
     <>
-      {showTopNav ? (
-        <div>HI</div>
+      {isSmallScreen ? (
+        <>
+          <TopNavbar />
+        </>
       ) : (
         <div className="sidenavPanel d-flex h-100 text-white flex-column p-3 position-relative">
-          <div className=" sidenavHeading mx-auto mt-4 h3">TailBoost</div>
+          <div className=" sidenavHeading mx-auto mt-4 h3 text-center">
+            <img
+              className="w-10"
+              src={logo}
+              style={{ width: ` ${showSideNav ? '20%' : '50%'} ` }}
+            ></img>
+            <p className={`fs-5 ms-2 ${showSideNav ? 'd-inline' : 'd-none'}`}>
+              TailBoost
+            </p>
+          </div>
           <hr />
           <div className="position-relative text-end">
             <button
@@ -25,25 +37,25 @@ function SideNav({ showSideNav, setShowSideNav, showTopNav }) {
             </button>
           </div>
           <div className="d-flex flex-column justify-content-start align-items-start mx-auto w-80">
-            {navItems.map((nav, index) => (
-              <div className="">
-                <button
-                  key={index}
-                  className="bg-transparent w-100 border-0 my-2 text-white fs-5 text-start"
-                >
-                  <a href={nav.link} className="nav-link">
-                    <nav.icon
-                      className={`mx-2 ${showSideNav ? 'fs-5' : 'fs-3'}`}
-                    />
-                    <p
-                      className={`d-inline ms-2 ${showSideNav ? '' : 'd-none'}`}
-                    >
-                      {nav.name}
-                    </p>
-                  </a>
-                </button>
-              </div>
+            {navItems.map((nav) => (
+              <NavItem nav={nav} showSideNav={showSideNav} />
             ))}
+          </div>
+          <div className="mt-auto mx-auto">
+            <NavItem
+              showSideNav={showSideNav}
+              nav={{
+                id: 4,
+                name: 'Logout',
+                icon: MdLogout,
+                link: '/logout',
+              }}
+            />
+          </div>
+          <hr />
+          <div className="d-flex fs-5 mx-auto">
+            <LiaUserCircle className="fs-2" />
+            <p className={`ms-4 ${showSideNav ? '' : 'd-none'}`}> UserName</p>
           </div>
         </div>
       )}

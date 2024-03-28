@@ -1,16 +1,22 @@
 .landing-page{
-    display: flex;
-    width:100% ;
-    height:100vh;
+  display: flex;
+  width:100% ;
+  height:100vh;
+}
+.sideNav{
+  width: 15%
+}
+.slimSideNav{
+  width: 8%
+}
+.outlet{
+overflow-y: auto;
+background-color: #212529;
+}
+
+@media (max-width: 767px) {
+  /* Your CSS rules for screens less than 768px wide */
+  .sideNav {
+     width:auto
   }
-  .sideNav{
-    width: 20%
-  }
-  .slimSideNav{
-    width: 8%
-  }
-  /* .outlet{
-   position: relative;
-   width: 100%;
-   padding: 8 12;
-  } */
+}

@@ -1,17 +1,23 @@
-import { MdOutlineWork } from 'react-icons/md';
-import { LiaWarehouseSolid } from 'react-icons/lia';
+import { MdOutlineDashboard, MdProductionQuantityLimits } from 'react-icons/md';
+import { BsInfoSquare } from 'react-icons/bs';
 
 export const navItems = [
   {
     id: 1,
     name: 'Dashboard',
-    icon: LiaWarehouseSolid,
+    icon: MdOutlineDashboard,
     link: '/',
   },
   {
     id: 2,
     name: 'Product',
-    icon: MdOutlineWork,
+    icon: MdProductionQuantityLimits,
+    link: '/',
+  },
+  {
+    id: 3,
+    name: 'About Us',
+    icon: BsInfoSquare,
     link: '/',
   },
 ];
