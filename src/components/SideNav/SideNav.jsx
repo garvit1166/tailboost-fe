@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./SideNav.css";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { LiaUserCircle } from "react-icons/lia";
@@ -7,8 +7,16 @@ import { navItems } from "./config";
 import NavItem from "./NavItem";
 import logo from "../../assets/logo.png";
 import TopNavbar from "../TopNavbar/TopNavbar";
+import useValue from "../../context/userContext";
 
 function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
+
+  const {setUserLoggedIn}=useValue();
+  const handleLogout=()=>{
+    setUserLoggedIn(false);
+    localStorage.clear();
+  }
+ 
   return (
     <>
       {isSmallScreen ? (
@@ -44,11 +52,12 @@ function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
           <div className="mt-auto mx-auto">
             <NavItem
               showSideNav={showSideNav}
+              onClick={handleLogout}
               nav={{
                 id: 4,
                 name: "Logout",
                 icon: MdLogout,
-                link: "/logout",
+                link: "/",
               }}
             />
           </div>

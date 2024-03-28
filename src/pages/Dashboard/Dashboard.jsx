@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import DashboardDataSection from '../../components/DashboardDataSection/DashboardDataSection';
 import InfoBar from '../../components/InfoBar/InfoBar';
+import useValue from '../../context/userContext';
 
 function Dashboard() {
+
+  const { userLoggedIn } = useValue();
+
+  useEffect(() => {
+    // Check if token exists in local storage
+    const token = localStorage.getItem('tokenn');
+    console.log(token);
+    if (!token) {
+      window.location.href = '/';
+      console.log(token);
+    } 
+  },[]);
   return (
     <div className={`d-flex flex-column bg-dark w-100 h-100`}>
       <div>

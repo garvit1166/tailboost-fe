@@ -1,13 +1,14 @@
 import React from "react";
-import './style.css'
+import "./login.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 
 //import { loginUser } from "../libs/apis/login";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import useValue from "../../context/userContext";
 
  
 function Login(){
@@ -28,18 +29,20 @@ function Login(){
     //         console.log(error);
     //     }
     // };
-
+    const {setUserLoggedIn}=useValue();
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:3001/', { email, password });
             const { user, token } = response.data;
             // Save token to local storage or session storage
-            localStorage.setItem('token', token);
+            localStorage.setItem('tokenn', token);
+            console.log(user);
             // Optionally, redirect to dashboard or display a success message
             toast.success('Login successful');
+            setUserLoggedIn(true);
             //setLoggedIn(true);
-            window.location.href = '/connect';
+            window.location.href = '/dashboard';
             // Redirect to dashboard or other page
             // history.push('/dashboard');
         } catch (error) {
@@ -54,7 +57,7 @@ function Login(){
     //     return <Redirect to='/connect' />;
     // }
     return(
-        <div className='login template d-flex justify-content-center align-items-center vh-100 bg-primary'>
+        <div className='login template d-flex justify-content-center align-items-center vh-100 login bg-primary'>
            <div className='form_container 50-w p-5 rounded bg-white'> 
                 <form onSubmit={handleSubmit}>
                 <h3 className='text-center'>Login to your account</h3>
@@ -71,7 +74,7 @@ function Login(){
                     <label htmlFor="check" className='custom-input-label ms-2'>Remember Me</label>
                 </div>
                 <div className='d-grid'>
-                    <button className='btn btn-primary'>Log In</button>
+                    <button className='btn btn-dark'>Log In</button>
                 </div>
                 <ToastContainer />
                 <p className='text-center mt-2'>

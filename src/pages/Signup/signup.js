@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import './style.css'
+import "./signup.css";
 import { ToastContainer, toast } from 'react-toastify';
 import { useState } from "react";
+import useValue from "../../context/userContext";
 
 function Signup(){
+    const {setUserLoggedIn}=useValue();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
 
@@ -20,8 +22,9 @@ function Signup(){
             localStorage.setItem('token', token);
             // Optionally, redirect to dashboard or display a success message
             toast.success('Signup successful');
+            setUserLoggedIn(true);
             //setLoggedIn(true);
-            window.location.href = '/connect';
+            window.location.href = '/dashboard';
             // Redirect to dashboard or other page
             // history.push('/dashboard');
         } catch (error) {
@@ -31,7 +34,7 @@ function Signup(){
         }
     };
     return(
-        <div className='signup template d-flex justify-content-center align-items-center vh-100 bg-primary'>
+        <div className='signup template d-flex justify-content-center align-items-center vh-100 signupp'>
            <div className='form_container 50-w p-5 rounded bg-white'> 
                 <form onSubmit={handleSubmit}>
                 <h3 className='text-center'>Create Account</h3>
@@ -52,7 +55,7 @@ function Signup(){
                     <label htmlFor="check" className='custom-input-label ms-2'>Remember Me</label>
                 </div>
                 <div className='d-grid mt-2'>
-                    <button className='btn btn-primary'>Sign Up</button>
+                    <button className='btn btn-dark'>Sign Up</button>
                 </div>
                 <p className='text-center mt-2'>
                     Already have an account? <Link to="/" className="mt-2"> Login</Link>
