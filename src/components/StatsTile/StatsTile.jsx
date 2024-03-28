@@ -1,5 +1,5 @@
-import './StatsTile.css';
-import React, { useState } from 'react';
+import "./StatsTile.css";
+import React, { useState } from "react";
 
 function StatsTile({ stat, icon: Icon }) {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
@@ -13,9 +13,9 @@ function StatsTile({ stat, icon: Icon }) {
       <p className="statsTile-label">{stat.label}</p>
       <div className="d-flex justify-content-between">
         <p className="m-0">
-          {(stat.label === 'Total Revenue') | (stat.label === 'Total Profit')
+          {(stat.label === "Total Revenue") | (stat.label === "Total Profit")
             ? `₹ `
-            : ' '}
+            : " "}
           {stat.value}
         </p>
         <Icon className="icon fs-3" />

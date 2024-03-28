@@ -1,6 +1,6 @@
-import React from 'react';
-import './LineChart.css';
-import { Line } from 'react-chartjs-2';
+import React from "react";
+import "./LineChart.css";
+import { Line } from "react-chartjs-2";
 import {
   Chart,
   CategoryScale,
@@ -11,7 +11,7 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from "chart.js";
 
 Chart.register(
   CategoryScale,
@@ -20,7 +20,7 @@ Chart.register(
   LineElement,
   Title,
   Tooltip,
-  Legend,
+  Legend
 );
 
 function LineChart({
@@ -41,7 +41,7 @@ function LineChart({
             return {
               label: name,
               data: yAxisData[i],
-              backgroundColor: '#022005',
+              backgroundColor: "#022005",
               borderColor: colorsList,
             };
           })
@@ -58,24 +58,24 @@ function LineChart({
           responsive: true,
           scales: {
             x: {
-              type: 'category',
+              type: "category",
               categorySpacing: 1,
               grid: {
                 display: false,
               },
               ticks: {
-                color: 'white',
+                color: "white",
               },
             },
             y: {
               categorySpacing: 1,
               ticks: {
-                color: 'white',
+                color: "white",
               },
               borderDash: [4, 4],
               grid: {
-                color: 'rgba(255, 255, 255, 0.1)',
-                tickColor: 'white',
+                color: "rgba(255, 255, 255, 0.1)",
+                tickColor: "white",
                 tickBorderDash: [2, 3],
                 tickLength: 10,
                 tickWidth: 2,

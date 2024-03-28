@@ -1,15 +1,15 @@
-.sidenavHeading{
-    letter-spacing: 0.1rem;
+.sidenavHeading {
+  letter-spacing: 0.1rem;
 }
-.closeButton{
-    width:2rem;
-    z-index: 1;
-    position: relative;
-    background-color: rgb(176, 171, 171);
-    border: none;
-    border-radius: 15px;
-    left:2rem;
+.closeButton {
+  width: 2rem;
+  z-index: 1;
+  position: relative;
+  background-color: rgb(176, 171, 171);
+  border: none;
+  border-radius: 15px;
+  left: 2rem;
 }
 .sidenavPanel {
-    background-color:#343a40;
+  background-color: #343a40;
 }

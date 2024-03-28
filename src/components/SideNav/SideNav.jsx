@@ -1,12 +1,12 @@
-import React from 'react';
-import './SideNav.css';
-import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
-import { LiaUserCircle } from 'react-icons/lia';
-import { MdLogout } from 'react-icons/md';
-import { navItems } from './config';
-import NavItem from './NavItem';
-import logo from '../../assets/logo.png';
-import TopNavbar from '../TopNavbar/TopNavbar';
+import React from "react";
+import "./SideNav.css";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { LiaUserCircle } from "react-icons/lia";
+import { MdLogout } from "react-icons/md";
+import { navItems } from "./config";
+import NavItem from "./NavItem";
+import logo from "../../assets/logo.png";
+import TopNavbar from "../TopNavbar/TopNavbar";
 
 function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
   return (
@@ -21,9 +21,9 @@ function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
             <img
               className="w-10"
               src={logo}
-              style={{ width: ` ${showSideNav ? '20%' : '50%'} ` }}
+              style={{ width: ` ${showSideNav ? "20%" : "50%"} ` }}
             ></img>
-            <p className={`fs-5 ms-2 ${showSideNav ? 'd-inline' : 'd-none'}`}>
+            <p className={`fs-5 ms-2 ${showSideNav ? "d-inline" : "d-none"}`}>
               TailBoost
             </p>
           </div>
@@ -46,16 +46,16 @@ function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
               showSideNav={showSideNav}
               nav={{
                 id: 4,
-                name: 'Logout',
+                name: "Logout",
                 icon: MdLogout,
-                link: '/logout',
+                link: "/logout",
               }}
             />
           </div>
           <hr />
           <div className="d-flex fs-5 mx-auto">
             <LiaUserCircle className="fs-2" />
-            <p className={`ms-4 ${showSideNav ? '' : 'd-none'}`}> UserName</p>
+            <p className={`ms-4 ${showSideNav ? "" : "d-none"}`}> UserName</p>
           </div>
         </div>
       )}

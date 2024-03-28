@@ -1,6 +1,6 @@
-import React from 'react';
-import './DoughnutChart.css';
-import { PieChart, Pie, Legend, Tooltip } from 'recharts';
+import React from "react";
+import "./DoughnutChart.css";
+import { PieChart, Pie, Legend, Tooltip } from "recharts";
 
 function DoughnutChart({ doughnutData, colors }) {
   return (
@@ -8,8 +8,8 @@ function DoughnutChart({ doughnutData, colors }) {
       <PieChart width={400} height={220}>
         <Pie
           data={doughnutData}
-          dataKey="value"
-          nameKey="name"
+          dataKey="totalAmountSpent"
+          nameKey="_id"
           cx="50%"
           cy="50%"
           innerRadius={50}
@@ -18,23 +18,10 @@ function DoughnutChart({ doughnutData, colors }) {
           label
           colors={colors}
         />
-        {/* <Legend
-          height={70}
-          iconType="circle"
-          layout="horizontal"
-          verticalAlign="bottom"
-          iconSize={10}
-          padding={5}
-          formatter={renderColorfulLegendText}
-          payload={truncatedDoughnutData.map((entry) => ({
-            value: entry.name,
-            type: 'circle',
-            color: '#8884d8',
-          }))}
-        /> */}
+
         <Tooltip
-          cursor={{ fill: 'transparent' }}
-          formatter={(value, name) => [value, name]}
+          cursor={{ fill: "transparent" }}
+          formatter={(_id, totalAmountSpent) => [_id, totalAmountSpent]}
         />
       </PieChart>
     </div>

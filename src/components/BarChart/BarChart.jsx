@@ -1,4 +1,4 @@
-import { Bar } from 'react-chartjs-2';
+import { Bar } from "react-chartjs-2";
 import {
   Chart,
   LinearScale,
@@ -8,7 +8,7 @@ import {
   CategoryScale,
   registerables,
   Tooltip as ChartTooltip,
-} from 'chart.js';
+} from "chart.js";
 
 Chart.register(
   CategoryScale,
@@ -16,7 +16,7 @@ Chart.register(
   BarElement,
   Title,
   ChartTooltip,
-  Legend,
+  Legend
 );
 
 const BarChart = ({ yAxisData, xAxisData, dataLabels, colorsList }) => {
@@ -38,7 +38,7 @@ const BarChart = ({ yAxisData, xAxisData, dataLabels, colorsList }) => {
         : [],
   };
   return (
-    <div style={{ height: '13rem' }}>
+    <div style={{ height: "13rem" }}>
       <Bar
         data={data}
         options={{
@@ -47,15 +47,15 @@ const BarChart = ({ yAxisData, xAxisData, dataLabels, colorsList }) => {
               categorySpacing: 1,
               grid: {
                 display: false,
-                color: 'white',
+                color: "white",
               },
               ticks: {
-                color: 'white',
+                color: "white",
               },
             },
             y: {
               ticks: {
-                color: 'white',
+                color: "white",
               },
               categorySpacing: 1,
               grid: {

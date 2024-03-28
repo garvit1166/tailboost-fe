@@ -1,10 +1,10 @@
-import './StatsBar.css';
-import React, { useState } from 'react';
-import { RiMoneyDollarCircleLine } from 'react-icons/ri';
-import { GiReceiveMoney } from 'react-icons/gi';
-import { TbSitemap } from 'react-icons/tb';
-import { CiDeliveryTruck } from 'react-icons/ci';
-import StatsTile from '../StatsTile/StatsTile';
+import "./StatsBar.css";
+import React, { useState } from "react";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { GiReceiveMoney } from "react-icons/gi";
+import { TbSitemap } from "react-icons/tb";
+import { CiDeliveryTruck } from "react-icons/ci";
+import StatsTile from "../StatsTile/StatsTile";
 
 function StatsBar({ stats }) {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import './InfoBar.css';
-import { MdOutlineNotificationsNone } from 'react-icons/md';
+import React, { useState } from "react";
+import "./InfoBar.css";
+import { MdOutlineNotificationsNone } from "react-icons/md";
 
 function InfoBar({ heading }) {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
@@ -12,13 +12,13 @@ function InfoBar({ heading }) {
   return (
     <div
       className={`text-white d-flex justify-content-between infoBar ${
-        isSmallScreen ? 'p-2' : 'p-4'
+        isSmallScreen ? "p-2" : "p-4"
       }`}
     >
       <div className="fs-4 text-uppercase fw-bold infoHeading">{heading}</div>
       <div className="d-flex">
         <form
-          className={`${isSmallScreen ? 'd-none' : 'd-flex'}`}
+          className={`${isSmallScreen ? "d-none" : "d-flex"}`}
           role="search"
         >
           <input

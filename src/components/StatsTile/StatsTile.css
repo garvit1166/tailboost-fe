@@ -1,13 +1,13 @@
-.statsTile{
-    background-color: #2f363e;
-    padding-inline: 5%;
-    border-radius: 15px;
-    text-align: start;
-    border-left: 5px solid #05c268;
-    padding-block: 6%;
-    margin-bottom: 3%;
+.statsTile {
+  background-color: #2f363e;
+  padding-inline: 5%;
+  border-radius: 15px;
+  text-align: start;
+  border-left: 5px solid #05c268;
+  padding-block: 6%;
+  margin-bottom: 3%;
 }
-.statsTile-label{
-    font-size: 1.1rem;
-    font-weight: 500;
+.statsTile-label {
+  font-size: 1.1rem;
+  font-weight: 500;
 }
