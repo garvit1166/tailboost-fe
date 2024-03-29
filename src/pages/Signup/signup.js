@@ -29,6 +29,8 @@ function Signup() {
       toast.success('Signup successful');
       setUserLoggedIn(true);
       setUserName(user.name);
+      const expirationTime = new Date(new Date().getTime() + 60000);
+      Cookies.set("auth", JSON.stringify(user), { expires: expirationTime });
 
       navigate('/dashboard');
     } catch (error) {
