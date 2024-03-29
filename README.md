@@ -99,4 +99,6 @@ By leveraging WebSocket for real-time updates, our e-commerce sales dashboard pr
 <a id="working-model-ss"></a>
 
 # Working Model Screenshots
+![image](https://github.com/garvit1166/tailboost-fe/assets/92694655/282ccca3-23a9-4498-8048-974e8088d298)
+
 
