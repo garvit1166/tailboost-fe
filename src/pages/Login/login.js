@@ -1,42 +1,41 @@
-import React from 'react';
-import './login.css';
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import Cookies from 'js-cookie';
+import React from "react";
+import "./login.css";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 
-import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
-import 'react-toastify/dist/ReactToastify.css';
-import useUser from '../../context/userContext';
-import { useNavigate } from 'react-router-dom';
+import "react-toastify/dist/ReactToastify.css";
+import useUser from "../../context/userContext";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { setUserLoggedIn, setUserName } = useUser();
   let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/', {
+      const response = await axios.post("http://localhost:3001/", {
         email,
         password,
       });
       const { user } = response.data;
-      toast.success('Login successful');
-      const expirationTime=new Date(new Date().getTime()+60000);
-      Cookies.set('auth',JSON.stringify(user),{expires:expirationTime});
-      //setUserLoggedIn(true);
+      toast.success("Login successful");
+      const expirationTime = new Date(new Date().getTime() + 60000);
+      Cookies.set("auth", JSON.stringify(user), { expires: expirationTime });
       setUserName(user.name);
 
-      navigate('/dashboard');
+      navigate("/dashboard");
     } catch (error) {
-      console.error('Signup failed:', error);
-      toast.error('Signup failed. Please try again.');
-      setEmail('');
-      setPassword('');
+      console.error("Signup failed:", error);
+      toast.error("Signup failed. Please try again.");
+      setEmail("");
+      setPassword("");
     }
   };
   return (
@@ -79,9 +78,9 @@ function Login() {
           </div>
           <ToastContainer />
           <p className="text-center mt-2">
-            New to my App?{' '}
+            New to my App?{" "}
             <Link to="/signup" className="mt-2">
-              {' '}
+              {" "}
               Sign up
             </Link>
           </p>

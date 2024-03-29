@@ -12,6 +12,7 @@ function DoughnutChart({ doughnutData, colors }) {
           nameKey="_id"
           cx="50%"
           cy="50%"
+          position="fixed"
           innerRadius={50}
           outerRadius={70}
           fill="#23cebf"

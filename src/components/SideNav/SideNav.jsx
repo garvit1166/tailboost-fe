@@ -1,28 +1,24 @@
-import React, { useEffect } from 'react';
-import './SideNav.css';
-import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
-import { LiaUserCircle } from 'react-icons/lia';
-import { MdLogout } from 'react-icons/md';
-import { navItems } from './config';
-import NavItem from './NavItem';
-import logo from '../../assets/logo.png';
-import TopNavbar from '../TopNavbar/TopNavbar';
-//import useValue from '../../context/userContext';
-import useUser from '../../context/userContext';
-import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
+import React, { useEffect } from "react";
+import "./SideNav.css";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { LiaUserCircle } from "react-icons/lia";
+import { MdLogout } from "react-icons/md";
+import { navItems } from "./config";
+import NavItem from "./NavItem";
+import logo from "../../assets/logo.png";
+import TopNavbar from "../TopNavbar/TopNavbar";
+
+import useUser from "../../context/userContext";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
-  //const { setUserLoggedIn } = useValue();
   const { userName } = useUser();
   let navigate = useNavigate();
   const handleLogout = () => {
-    
-      Cookies.remove('auth');
-    //setUserLoggedIn(false);
-     navigate('/'); 
-    
-    
+    Cookies.remove("auth");
+
+    navigate("/");
   };
 
   return (
@@ -37,9 +33,9 @@ function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
             <img
               className="w-10"
               src={logo}
-              style={{ width: ` ${showSideNav ? '20%' : '50%'} ` }}
+              style={{ width: ` ${showSideNav ? "20%" : "50%"} ` }}
             ></img>
-            <p className={`fs-5 ms-2 ${showSideNav ? 'd-inline' : 'd-none'}`}>
+            <p className={`fs-5 ms-2 ${showSideNav ? "d-inline" : "d-none"}`}>
               TailBoost
             </p>
           </div>
@@ -63,16 +59,16 @@ function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
               handleLogout={handleLogout}
               nav={{
                 id: 4,
-                name: 'Logout',
+                name: "Logout",
                 icon: MdLogout,
-                link: '/',
+                link: "/",
               }}
             />
           </div>
           <hr />
           <div className="d-flex fs-5 mx-auto">
             <LiaUserCircle className="fs-2" />
-            <p className={`ms-4 ${showSideNav ? '' : 'd-none'}`}> {userName}</p>
+            <p className={`ms-4 ${showSideNav ? "" : "d-none"}`}> {userName}</p>
           </div>
         </div>
       )}
