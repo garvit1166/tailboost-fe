@@ -7,6 +7,7 @@ import { useState } from 'react';
 import useValue from '../../context/userContext';
 import { useNavigate } from 'react-router-dom';
 import useUser from '../../context/userContext';
+import Cookies from "js-cookie";
 
 function Signup() {
   let navigate = useNavigate();
