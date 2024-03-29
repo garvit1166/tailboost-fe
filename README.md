@@ -100,5 +100,8 @@ By leveraging WebSocket for real-time updates, our e-commerce sales dashboard pr
 
 # Working Model Screenshots
 ![image](https://github.com/garvit1166/tailboost-fe/assets/92694655/282ccca3-23a9-4498-8048-974e8088d298)
+![image](https://github.com/garvit1166/tailboost-fe/assets/92694655/de650e4f-f71f-4de7-acf8-d7f7e498b00a)
+![image](https://github.com/garvit1166/tailboost-fe/assets/92694655/1ae80a8f-d2de-4535-b159-cc83b132412f)
+
 
 
