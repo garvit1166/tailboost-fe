@@ -7,17 +7,22 @@ import { navItems } from './config';
 import NavItem from './NavItem';
 import logo from '../../assets/logo.png';
 import TopNavbar from '../TopNavbar/TopNavbar';
-import useValue from '../../context/userContext';
+//import useValue from '../../context/userContext';
 import useUser from '../../context/userContext';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
-  const { setUserLoggedIn } = useValue();
+  //const { setUserLoggedIn } = useValue();
   const { userName } = useUser();
   let navigate = useNavigate();
   const handleLogout = () => {
-    setUserLoggedIn(false);
-    navigate('/');
+    
+      Cookies.remove('auth');
+    //setUserLoggedIn(false);
+     navigate('/'); 
+    
+    
   };
 
   return (
@@ -55,7 +60,7 @@ function SideNav({ showSideNav, setShowSideNav, isSmallScreen }) {
           <div className="mt-auto mx-auto">
             <NavItem
               showSideNav={showSideNav}
-              onClick={handleLogout}
+              handleLogout={handleLogout}
               nav={{
                 id: 4,
                 name: 'Logout',

@@ -2,6 +2,7 @@ import React from 'react';
 import './login.css';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -25,7 +26,9 @@ function Login() {
       });
       const { user } = response.data;
       toast.success('Login successful');
-      setUserLoggedIn(true);
+      const expirationTime=new Date(new Date().getTime()+60000);
+      Cookies.set('auth',JSON.stringify(user),{expires:expirationTime});
+      //setUserLoggedIn(true);
       setUserName(user.name);
 
       navigate('/dashboard');

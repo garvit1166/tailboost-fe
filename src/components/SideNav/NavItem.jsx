@@ -1,10 +1,12 @@
 import React from "react";
 
-function NavItem({ nav, showSideNav }) {
+function NavItem({ nav, showSideNav, handleLogout }) {
+  
   return (
     <div>
       <button
         key={nav.id}
+        onClick={()=>handleLogout?handleLogout():null}
         className="bg-transparent w-100 border-0 my-2 text-white fs-5 text-start"
       >
         <a href={nav.link} className="nav-link">

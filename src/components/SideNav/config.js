@@ -6,18 +6,18 @@ export const navItems = [
     id: 1,
     name: "Dashboard",
     icon: MdOutlineDashboard,
-    link: "/",
+    link: "/dashboard",
   },
   {
     id: 2,
     name: "Product",
     icon: MdProductionQuantityLimits,
-    link: "/",
+    link: "/dashboard",
   },
   {
     id: 3,
     name: "About Us",
     icon: BsInfoSquare,
-    link: "/",
+    link: "/dashboard",
   },
 ];

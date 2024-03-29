@@ -1,12 +1,14 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import useUser from '../../context/userContext';
+//import useUser from '../../context/userContext';
+import Cookies from 'js-cookie';
 
 const ProtectedRoute = ({ children }) => {
-  const { userloggedIn } = useUser();
+  //const { userloggedIn } = useUser();
   let location = useLocation();
+  const isAuthenticated=!!Cookies.get('auth');
 
-  if (!userloggedIn) {
+  if (!isAuthenticated) {
     return <Navigate to="/" state={{ from: location }} replace />;
   }
   return children;

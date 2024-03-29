@@ -25,7 +25,7 @@ function StatsBar({ stats }) {
         <div className="row">
           {stats &&
             stats.map((stat, index) => (
-              <div className="col-sm-6 col-md-4 col-lg-3" key={index}>
+              <div className="col-sm-6 col-md-6 col-lg-3" key={index}>
                 <StatsTile stat={stat} icon={icons[index]} />
               </div>
             ))}
